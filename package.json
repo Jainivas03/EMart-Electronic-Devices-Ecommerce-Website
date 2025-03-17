@@ -2,15 +2,16 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "date-fns": "^3.6.0",
-    "ejs": "^3.1.9",
-    "express": "^4.19.2",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "path": "^0.12.7",
     "pg": "^8.11.5"
   },
   "name": "nodejs-files",
   "version": "1.0.0",
-  "main": "home.js",
-  "type": "module",
+  "main": "server.js",
   "scripts": {
+    "start": "node home.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,3 +19,5 @@
   "license": "ISC",
   "description": ""
 }
+
+
