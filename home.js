@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
 import dotenv from "dotenv";
+import path from "path";
 import { fileURLToPath } from "url";
 
 dotenv.config(); // Load environment variables from .env
