@@ -2,23 +2,6 @@ import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
 import { parse } from "date-fns";
-const { Pool } = require('pg');
-require('dotenv').config();
-
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false, // Allow self-signed SSL certificates
-  },
-});
-
-pool.on('connect', () => {
-  console.log('Connected to the PostgreSQL database');
-});
-
-module.exports = pool;
-
-
 
 const port = 3000;
 const app = express();
