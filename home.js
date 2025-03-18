@@ -1,19 +1,24 @@
 import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
-import { parse } from "date-fns";
+import dotenv from "dotenv";
+
+dotenv.config(); // Load environment variables from .env
 
 const port = 3000;
 const app = express();
+
 const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "Ecommerce",
-  password: "Jai$11103",
-  port: 5432,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_DATABASE,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
 
-db.connect();
+db.connect()
+  .then(() => console.log("Connected to PostgreSQL"))
+  .catch((err) => console.error("Connection error", err.stack));
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
