@@ -10,6 +10,7 @@
   },
   "name": "nodejs-files",
   "version": "1.0.0",
+  "type": "module",
   "main": "home.js",
   "scripts": {
     "start": "node home.js",
