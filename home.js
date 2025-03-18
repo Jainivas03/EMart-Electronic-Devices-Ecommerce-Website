@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
 import dotenv from "dotenv";
+import { fileURLToPath } from "url";
 
 dotenv.config(); // Load environment variables from .env
 
@@ -25,6 +26,9 @@ db.connect()
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 app.get("/", async (req, res) => {
   const i = await db.query("select * from ID");
